@@ -1,4 +1,4 @@
-<img width="1920" height="1020" alt="Screenshot 2026-06-08 151122" src="https://github.com/user-attachments/assets/2b149336-014e-4668-8de5-0beb42b9e9be" /># 📘 Previous Papers Chatbot
+📘 Previous Papers Chatbot
 
 A web-based chatbot application that helps students quickly search and access previous year question papers using subject, year, and semester filters. The system provides an easy-to-use interface with searchable subject selection, paper viewing, and PDF download functionality.
 
@@ -155,7 +155,10 @@ http://127.0.0.1:5000
 * Admin panel for paper uploads
 * Database integration (MongoDB/MySQL)
 * Cloud deployment
-
+  
+**Avaliable at**
+ https://previous-paper-chatbot.onrender.com
+ 
 ## 👩‍💻 Author
 
 **Geethika Polisetti**
