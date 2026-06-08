@@ -1,0 +1,177 @@
+[
+  {
+    "subject": "ENGINEERING GRAPHICS",
+    "year": "2024",
+    "semester": "1",
+    "title": "ENGINEERING GRAPHICS",
+    "url": "static/papers/23ME101T-Engineering Graphics.pdf"
+  },
+  {
+    "subject": "BEEE",
+    "year": "2024",
+    "semester": "1",
+    "title": "BASIC ELECTRICAL AND ELECTRONICS ENGINEERING",
+    "url": "static/papers/23EE101T-BEEE.pdf"
+  },
+  {
+    "subject": "PHYSICS",
+    "year": "2024",
+    "semester": "1",
+    "title": "ENGINEERING PHYSICS",
+    "url": "static/papers/23BP101T-Engineering Physics.pdf"
+  },
+  {
+    "subject": "LAC",
+    "year": "2024",
+    "semester": "1",
+    "title": "LINEAR ALGEBRA AND CALCULUS",
+    "url": "static/papers/23BM101T-Linear Algebra and Calculus.pdf"
+  },
+  {
+    "subject": "C PROGRAMMING",
+    "year": "2024",
+    "semester": "1",
+    "title": "LINEAR ALGEBRA AND CALCULUS",
+    "url": "static/papers/23CS101T-Introduction to Programming.pdf"
+  },
+  {
+    "subject": "BCME",
+    "year": "2024",
+    "semester": "2",
+    "title": "BASIC CIVIL AND MECHANICAL ENGINEERING",
+    "url": "static/papers/23CM201T-Basic Civil and Mechanical Engineering.pdf"
+  },
+  {
+    "subject": "English",
+    "year": "2024",
+    "semester": "2",
+    "title": "COMMUNICATIVE ENGLISH",
+    "url": "static/papers/23BE101T - English.pdf"
+  },
+  {
+    "subject": "CHEMISTRY",
+    "year": "2024",
+    "semester": "2",
+    "title": "CHEMISTRY",
+    "url": "static/papers/23BC201T-Chemistry.pdf"
+  },
+  {
+    "subject": "DEVC",
+    "year": "2024",
+    "semester": "2",
+    "title": "DIFFERENTIAL EQUATIONS AND VECTOR CALCULUS",
+    "url": "static/papers/23MB201T-Differential Equations and Vector Calculus.pdf"
+  },
+  {
+    "subject": "DATA STRUCTURES",
+    "year": "2024",
+    "semester": "2",
+    "title": "DATA STRUCTURES",
+    "url": "static/papers/23CS201T-Data Structures.pdf"
+  },
+  {
+    "subject": "DLCO",
+    "year": "2024",
+    "semester": "3",
+    "title": "DIGITAL LOGIC AND COMPUTER ORGANIZATION",
+    "url": "static/papers/23EC305T-Digital Logic and Computer Organization.pdf"
+  },
+  {
+    "subject": "JAVA",
+    "year": "2024",
+    "semester": "3",
+    "title": "OBJECT ORIENTED PROGRAMMING THROUGH JAVA",
+    "url": "static/papers/23CS302T-Object oriented programming through JAVA.pdf"
+  },
+  {
+    "subject": "DMGT",
+    "year": "2024",
+    "semester": "3",
+    "title": "DISCRETE MATHEMATICS AND GRAPH THEORY",
+    "url": "static/papers/23BM304T-Discrete Mathematics and Graph theory.pdf"
+  },
+  {
+    "subject": "ADVANCED DATA STRUCTURES",
+    "year": "2024",
+    "semester": "3",
+    "title": "ADVANCED DATA STRUCTURES & ALGORITHM ANALYSIS",
+    "url": "static/papers/23CS301T-Advanced Data Structures& Algorithm Analysis.pdf"
+  },
+  {
+    "subject": "MEFA",
+    "year": "2025",
+    "semester": "4",
+    "title": "MANAGERIAL ECONOMICS AND FINANCIAL ANALYSIS",
+    "url": "static/papers/23HM401T-Managerial Economics and Financial Analysis.pdf"
+  },
+  {
+    "subject": "P&S",
+    "year": "2025",
+    "semester": "4",
+    "title": "PROBABILITY AND STATISTICS",
+    "url": "static/papers/23BM402T-Probability and Statistics.pdf"
+  },
+  {
+    "subject": "OS",
+    "year": "2025",
+    "semester": "4",
+    "title": "OPERATING SYSTEMS",
+    "url": "static/papers/23CS401T-Operating Systems.pdf"
+  },
+  {
+    "subject": "DBMS",
+    "year": "2025",
+    "semester": "4",
+    "title": "DATABASE MANAGEMENT SYSTEM",
+    "url": "static/papers/23IT401T-DataBase Management System.pdf"
+  },
+  {
+    "subject": "SOFTWARE ENGINEERING",
+    "year": "2025",
+    "semester": "4",
+    "title": "SOFTWARE ENGINEERING",
+    "url": "static/papers/23CS402T-SOFTWARE ENGINEERING.pdf"
+  },
+  {
+    "subject": "HONORS",
+    "year": "2025",
+    "semester": "4",
+    "title": "PYTHON FOR DATA SCIENCE",
+    "url": "static/papers/23CSH01T- PYTHON FOR DATA SCIENCE (HONORS).pdf"
+  },
+  {
+    "subject": "CN",
+    "year": "2025",
+    "semester": "5",
+    "title": "COMPUTER NETWORKS",
+    "url": "static/papers/23DS501T-COMPUTER NETWORKS.pdf"
+  },
+  {
+    "subject": "DWDM",
+    "year": "2025",
+    "semester": "5",
+    "title": "DATA WAREHOUSING AND DATA MINING",
+    "url": "static/papers/23CS501T-DATA WAREHOUSING AND DATA MINING.pdf"
+  },
+  {
+    "subject": "EPS",
+    "year": "2025",
+    "semester": "5",
+    "title": "ENTREPRENEURSHIP",
+    "url": "static/papers/23HM501T-ENTREPRENEURSHIP AND VENTURE CREATION.pdf"
+  },
+  {
+    "subject": "FLAT",
+    "year": "2025",
+    "semester": "5",
+    "title": "FORMAL LANGUAGES AND AUTOMATA THEORY",
+    "url": "static/papers/23CS502T-FORMAL LANGUAGES AND AUTOMATA THEORY.pdf"
+  },
+  {
+    "subject": "HONORS",
+    "year": "2025",
+    "semester": "5",
+    "title": "EDGE COMPUTING",
+    "url": "static/papers/23CSH02T-EDGE COMPUTING (HONORS).pdf"
+  }
+]

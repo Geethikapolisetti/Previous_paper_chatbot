@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Previous Papers Chatbot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 min-h-screen p-6 text-gray-800">
+  <div class="max-w-3xl mx-auto bg-white shadow-lg rounded-xl p-6">
+    <h2 class="text-2xl font-bold mb-4 text-blue-600">📘 Previous Papers Chatbot</h2>
+
+    <!-- Prompt Box -->
+    <input
+      id="prompt"
+      type="text"
+      class="w-full border-2 border-gray-900 rounded px-4 py-2 mb-4 
+      focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-700"
+      placeholder="Type your query and press Enter..."
+      onkeydown="handlePromptEnter(event)"
+    />
+
+    <!-- Dropdown Filters -->
+    <div id="filter-section" class="grid grid-cols-1 sm:grid-cols-3 gap-4 hidden mb-6">
+
+      <!-- Subject Search -->
+      <div class="relative">
+        <input
+          type="text"
+          id="subjectSearch"
+          placeholder="Search Subject..."
+          class="border-2 border-gray-900 rounded px-3 py-2 w-full 
+          focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-700"
+          onkeyup="filterSubjects()"
+        />
+
+        <div id="subjectList"
+          class="absolute bg-white border-2 border-gray-900 w-full mt-1 max-h-40 overflow-y-auto hidden z-10">
+        </div>
+      </div>
+
+      <!-- Year -->
+      <select id="year"
+        class="border-2 border-gray-900 rounded px-3 py-2 
+        focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-700"
+        onchange="loadSemesters()">
+        <option value="">Select Year</option>
+      </select>
+
+      <!-- Semester -->
+      <select id="semester"
+        class="border-2 border-gray-900 rounded px-3 py-2 
+        focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-700"
+        onchange="getPapers()">
+        <option value="">Select Semester</option>
+      </select>
+
+    </div>
+
+    <!-- Result Section -->
+    <div id="papers"></div>
+  </div>
+
+<script>
+
+async function handlePromptEnter(event) {
+  if (event.key === "Enter") {
+    const promptText = document.getElementById("prompt").value.trim();
+    const filterSection = document.getElementById("filter-section");
+    const papersSection = document.getElementById("papers");
+
+    if (promptText === "") {
+      filterSection.classList.add("hidden");
+      papersSection.innerHTML = "";
+    } else {
+      filterSection.classList.remove("hidden");
+      await loadSubjects();
+    }
+  }
+}
+
+async function loadSubjects() {
+  const res = await fetch("/get_subjects");
+  const data = await res.json();
+
+  window.allSubjects = data;
+  displaySubjects(data);
+}
+
+function displaySubjects(subjects) {
+  const list = document.getElementById("subjectList");
+  list.innerHTML = "";
+
+  subjects.forEach(subject => {
+    list.innerHTML += `
+      <div class="p-2 hover:bg-gray-200 cursor-pointer"
+        onclick="selectSubject('${subject}')">
+        ${subject}
+      </div>
+    `;
+  });
+
+  list.classList.remove("hidden");
+}
+
+function filterSubjects() {
+  const query = document.getElementById("subjectSearch").value.toLowerCase();
+
+  const filtered = window.allSubjects.filter(sub =>
+    sub.toLowerCase().includes(query)
+  );
+
+  displaySubjects(filtered);
+}
+
+function selectSubject(subject) {
+  document.getElementById("subjectSearch").value = subject;
+  document.getElementById("subjectList").classList.add("hidden");
+  loadYears();
+}
+
+async function loadYears() {
+  const subject = document.getElementById("subjectSearch").value;
+
+  const res = await fetch("/get_years", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ subject })
+  });
+
+  const data = await res.json();
+  const yearSelect = document.getElementById("year");
+
+  yearSelect.innerHTML = `<option value="">Select Year</option>`;
+  data.forEach(year => {
+    yearSelect.innerHTML += `<option value="${year}">${year}</option>`;
+  });
+}
+
+async function loadSemesters() {
+  const subject = document.getElementById("subjectSearch").value;
+  const year = document.getElementById("year").value;
+
+  const res = await fetch("/get_semesters", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ subject, year })
+  });
+
+  const data = await res.json();
+  const semSelect = document.getElementById("semester");
+
+  semSelect.innerHTML = `<option value="">Select Semester</option>`;
+  data.forEach(sem => {
+    semSelect.innerHTML += `<option value="${sem}">${sem}</option>`;
+  });
+}
+
+async function getPapers() {
+  const subject = document.getElementById("subjectSearch").value;
+  const year = document.getElementById("year").value;
+  const semester = document.getElementById("semester").value;
+
+  const res = await fetch("/get_papers", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ subject, year, semester })
+  });
+
+  const data = await res.json();
+  const result = document.getElementById("papers");
+
+  if (data.length === 0) {
+    result.innerHTML = `<p class="text-red-500">No papers found for the selected filters.</p>`;
+    return;
+  }
+
+  let html = `
+    <h4 class="text-lg font-semibold mb-3">📄 Available Papers</h4>
+    <ul class="space-y-3">
+  `;
+
+  data.forEach(paper => {
+    html += `
+      <li class="flex items-center justify-between bg-gray-100 p-3 rounded-lg shadow-sm">
+        <span class="font-medium">${paper.title}</span>
+
+        <div class="space-x-2">
+          <a href="${paper.url}" target="_blank"
+            class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
+            View
+          </a>
+
+          <a href="${paper.url}" download
+            class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
+            Download
+          </a>
+        </div>
+      </li>
+    `;
+  });
+
+  html += `</ul>`;
+  result.innerHTML = html;
+}
+
+</script>
+</body>
+</html>
